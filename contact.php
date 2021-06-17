@@ -1,24 +1,18 @@
 <?php
+// ... write code
+?>
+<?php include("header.php") ?>
+<?php include("navbar.php") ?>
+
+
+<?php 
 if (!isset($_POST['submit'])) {
     $email = false;
     $name = false;
     $website = false;
     $message = false;
-} else {
-    $email = $_POST['email'];
-    $name = $_POST['name'];
-    $website = $_POST['website'];
-    $message = $_POST['message'];
-    $subject = "Dit is een test email voor de cursus";
-}
-if($_POST["submit"]) {
-    mail($adminEmail, $subject, $message . "From: spamrentier@gmail.com");
-}
-?>
-<?php include("header.php") ?>
-<?php include("navbar.php") ?>
-
-<form action="action.php" method="get">
+    ?>
+<form action="contact.php" method="post">
     <div class="row">
         <div class="col-25">
             <label for='name'>Naam:</label>
@@ -57,5 +51,22 @@ if($_POST["submit"]) {
         <input type='submit' name='submit' value='Verstuur'>
     </div>
 </form>
+<?php 
+} else {
+    $adminEmail = $_POST['email'];
+    $name = $_POST['name'];
+    $website = $_POST['website'];
+    $message = $_POST['message'];
+    $subject = "Dit is een test email voor de cursus";
+    $from = "From: spamrentier@gmail.com";
+    if (mail($adminEmail, $subject, $message . $from)) {
+        echo "<p>Mail verzonden</p>";
+    } else {
+        echo "<p>Mail niet verzonden</p>";
+    }
+}
+
+?>
+
 
 <?php include("footer.php") ?>

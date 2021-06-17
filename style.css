@@ -6,7 +6,7 @@
     background-color: #24252A;
 }
 
-li, a, button, footer, form {
+li, a, button, footer, form, h1 {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -65,7 +65,14 @@ form, p {
     color: #215799;
 }
 
-p {
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #215799;
+}
+
+h1, p {
     margin: 20px;
 }
 
