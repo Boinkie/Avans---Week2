@@ -53,17 +53,19 @@ if (!isset($_POST['submit'])) {
 </form>
 <?php 
 } else {
-    $adminEmail = $_POST['email'];
-    $name = $_POST['name'];
-    $website = $_POST['website'];
-    $message = $_POST['message'];
-    $subject = "Dit is een test email voor de cursus";
-    $from = "From: spamrentier@gmail.com";
-    if (mail($adminEmail, $subject, $message . $from)) {
-        echo "<p>Mail verzonden</p>";
-    } else {
-        echo "<p>Mail niet verzonden</p>";
-    }
+    include_once ("functions.php");
+    sendMail($_POST);
+    // $adminEmail = $_POST['email'];
+    // $name = $_POST['name'];
+    // $website = $_POST['website'];
+    // $message = $_POST['message'];
+    // $subject = "Dit is een test email voor de cursus";
+    // $from = "From: spamrentier@gmail.com";
+    // if (mail($adminEmail, $subject, $message . $from)) {
+    //     echo "<p>Mail verzonden</p>";
+    // } else {
+    //     echo "<p>Mail niet verzonden</p>";
+    // }
 }
 
 ?>
